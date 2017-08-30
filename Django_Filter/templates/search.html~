@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/shop-homepage.css' %}" rel="stylesheet">
+	<link href="{% static 'css/full.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Logo</a>
+		<ul class="navbar-nav ml-auto location">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Kochi</a>
+            </li>
+			</ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Best Picks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            {% if request.user.is_authenticated %}
+	    <li class="nav-item">
+              <a class="nav-link" href="{% url 'auth_logout' %}">LOGOUT</a>
+              <a class="nav-link" href="#">Sign in</a>
+              <a class="nav-link" href="#">Sign in</a>
+              <a class="nav-link" href="#">Sign in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
+		
+			<!--<form class="form-inline" action="#">
+    <input class="form-control searchboxx" type="text" placeholder="Search experiences">
+    <button class="btn location custom-btn searchboxx" type="submit">Search</button>
+  </form>-->
+	
+	<hr>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+		<div class="container sidenavbar">
+          <h5 class="my-4">FILTERS <small class="text secondarytext">Reset</small></h5>
+		  <hr>
+		  
+		   <h6 class="my-4">Trending Hashtags</h6>
+		  
+          <div class="list-group">
+            <a href="#" class="list-group-item textthree">#shopping</a>
+            <a href="#" class="list-group-item textthree">#kochi</a>
+            <a href="#" class="list-group-item textthree">#tea</a>
+			 <a href="#" class="list-group-item textthree">#cafe</a>
+          </div>
+		  
+		  <hr>
+		  
+		  <h6 class="my-4">Select Cetegory</h6>
+		  
+		  <div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Choose cetegories
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Shopping</a>
+    <a class="dropdown-item" href="#">Restaurants</a>
+    <a class="dropdown-item" href="#">Malls</a>
+  </div>
+</div>
+</div>
+		
+		
+		
+		</div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+		
+				<div class="table-responsive mt-3">
+		<table class="table">
+      <thead>
+        <tr>
+          <th><b>SORT BY</b></th>
+          <th>Trending</th>
+          <th>Popularity</th>
+          <th>Currently Open</th>
+         </tr>
+      </thead>
+	   </table>
+  </div>
+
+           {% for post in found_entries %}
+
+          <div class="row">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <a href={{ post.domain }}><img class="card-img-top" src="{{ post.image.url }}" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href={{ post.domain }}>{{ post.name }}</a>
+                  </h4>
+                  <h6 class="textthree">#cafe</h6> <h6 class="textthree">#Kochi</h6>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+              </div>
+            </div>
+
+         
+
+
+          
+
+            
+
+          </div>
+          <!-- /.row -->
+          {% endfor %}
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+<!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <ul class="list-inline mb-2 customcolor">
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">About us</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+			   <li class="list-inline-item">
+                <a class="linkcolor"href="#">Blog</a>
+              </li>
+			   <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">Contact</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">Terms of Use</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">Privacy Policy</a>
+              </li>
+            </ul>
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item mr-3">
+                <a class="linkcolor"href="#">
+                  <i class="fa fa-facebook fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mr-3">
+                <a class="linkcolor"href="#">
+                  <i class="fa fa-twitter fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">
+                  <i class="fa fa-instagram fa-2x fa-fw"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
+</html>

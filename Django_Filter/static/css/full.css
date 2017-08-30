@@ -1,0 +1,155 @@
+/*!
+ * Start Bootstrap - Full (https://startbootstrap.com/template-overviews/full)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-full/blob/master/LICENSE)
+ */
+
+
+
+
+@font-face {
+font-family: "Avenir-Heavy";
+src: url("css/fonts/Avenir-Heavy.otf")format("opentype");
+}
+ 
+ 
+ 
+header.masthead {
+  position: relative;
+  background: url("../assets/cover.png") no-repeat center center;
+  background-size: cover;
+  padding-top: 10rem;
+  padding-bottom:6rem;
+}
+
+.navbar {
+	background: #F5F5F5;;
+	
+}
+
+.sidenavbar {
+	background: #F5F5F5;
+	padding:20px;
+	
+}
+
+
+.navbar-brand {
+	font-family: Avenir-Heavy;
+	font-size: 30px;
+	color: #EA1E37;
+	letter-spacing: 0;
+	text-align: right;
+	
+}
+
+.location {
+	background: #F5F5F5;
+    border-radius: 4px;
+	padding-left:20px;
+	padding-right:20px;
+	
+}
+
+.searchboxx {
+	margin-left:10px;
+}
+
+.nav-link {
+	font-family: Avenir-Book;
+	font-size: 18px;
+	color: #101417;
+	letter-spacing: 0.99px;
+	
+}
+
+.nav-link:hover {
+	color: #EA1E37;
+	
+}
+
+.custom-btn {
+	background: #EA1E37;
+    border-radius: 4px;
+	font-family: Avenir-Medium;
+	color: #FFFFFF;
+
+}
+
+.textrightcorner{
+	position: relative;
+    text-align: center;
+    color: white;
+	
+}
+
+.top-right{
+	
+	 position: absolute;
+    bottom: 8px;
+    right: 16px;
+	
+}
+
+.custom-mt {
+	margin-top:100px;
+	font-size: 24px;
+	
+	
+}
+
+.toppicks {
+	font-size: 24px;
+	color: #101417;
+	
+}
+
+.secondarytext {
+	font-size: 14px;
+    color: #EA1E37;
+    letter-spacing: 0.69px;
+	text-decoration: underline;
+}
+
+.textthree {
+	
+    color: #EA1E37;
+	display:inline;
+   }
+   
+   
+   
+.textthree:hover {
+	
+    color: #EA1E37;
+	opacity:0.9;
+   }
+   
+
+
+
+.section-brand {
+	background: #F5F5F5;
+	margin-top:14px;
+	padding:3rem;
+	
+	
+}
+
+.sectionblog {
+	margin-top:14px;
+	padding:3rem;
+	
+}
+
+footer.footer {
+  padding-top: 2rem;
+  padding-bottom:2rem;
+  background: #1E2428;
+}
+
+.linkcolor{
+  color: #EA1E37;
+	
+}
+

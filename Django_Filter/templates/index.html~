@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Full - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/full.css' %}" rel="stylesheet">
+
+  </head>
+  
+   <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	
+
+  <body>
+
+    <!-- vazhikatal -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Logo</a>
+		<ul class="navbar-nav ml-auto location">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kochi</a>
+            </li>
+			</ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Best Picks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+			   {% if request.user.is_authenticated %}
+	    <li class="nav-item">
+              <a class="nav-link" href="{% url 'auth_logout' %}">LOGOUT</a>
+            {% else %}
+              <a class="nav-link" href="{% url 'auth_login' %}">Log in</a>
+              <a class="nav-link" href="{% url 'registration_register' %}">Register</a>
+            {% endif %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+     
+	 <!-- vazhikatal -->  
+	<!--thala-->
+    <header class="masthead text-white">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5 text-center">Explore the best around you!</h1>
+			  <h5 class="mb-5 text-center">All with the power of #hashtag.</h5>
+			
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form action="/search/" method ="get">{% csrf_token %}
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input name="q" type="text" class="form-control form-control-lg" placeholder="Search for nearest places and expereinces">
+                </div>
+                <div class="col-12 col-md-3">
+                  <button type="submit" class="btn btn-block btn-lg custom-btn">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+		  
+		  
+		  
+        </div>
+		
+		
+		
+      </div>
+	    <div class="container">
+	   <h6 class="custom-mt text-left">Trending searches</h6>
+	   
+	   
+		<div class="table-responsive mt-3">
+		<table class="table">
+      <thead>
+        <tr>
+          <th>#Food</th>
+          <th>#Shopping</th>
+          <th>#Kaloor</th>
+          <th>#Pubs</th>
+          <th>#Pizza</th>
+          <th>#LuluMall</th>
+          <th>#MasalaChai</th>
+        </tr>
+      </thead>
+	   </table>
+  </div>
+	   
+	   
+	   
+	   
+	   </div>
+	  
+    </header>
+	<!--thala-->
+	
+	
+	<!--Listings-->
+	
+	 
+    <div class="container">
+      <h4 class="my-4 toppicks">Top Picks around you
+        <small class="text-center secondarytext">See all</small>
+      </h4>
+
+
+      {% for post in posts %}
+
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="textrightcorner"><a href={{ post.domain }} target="_blank"><img class="card-img-top" src="{{ post.image.url }}" alt=""></a><div class="top-right"><i class="fa fa-heart"></i></div></div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href={{ post.domain }} target="_blank">{{ post.name }}</a>
+              </h4>
+			   <h6 class="textthree">#cafe</h6> <h6 class="textthree">#Kochi</h6>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+            </div>
+			 <div class="card-footer">
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+   {% endfor %}
+	
+	<!--Listingends-->
+	
+	<!--orucaroselkadtha-->
+	
+	
+	
+	 <div class="container-fluid section-brand">
+	 
+	  <h5 class="my-4 text-center">More than 250,000 listing serving your immediate thirst for
+discovery and fun. </br>All with the power of hashtags</h5>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'assets/sample1.jpeg' %}" alt="Lulu Mall" width="100%" height="500px">
+      <div class="carousel-caption">
+        <h3>Lulu Mall, Kochi</h3>
+        <p>Great place to shop and eat!!</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'assets/sample2.jpeg' %}" alt="Chicago" width="100%" height="500px">
+      <div class="carousel-caption">
+        <h3>Chicago</h3>
+        <p>Thank you, Chicago!</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'assets/sample1.jpeg' %}" alt="New York" width="100%" height="500px">
+      <div class="carousel-caption">
+        <h3>New York</h3>
+        <p>We love the Big Apple!</p>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</div>
+<!--orucaroselkadtha-->
+
+
+<!--nammudeblog-->
+
+<div class="container sectionblog">
+
+ <h4 class="my-4 toppicks">From our Blog
+        <small class="text-center secondarytext">Read More</small>
+      </h4>
+	  
+	  
+	        <div class="row">
+        <div class="col-lg-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="{% static 'assets/blog1.jpeg' %}" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Blog One</a>
+              </h4>
+			  
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="{% static 'assets/blog2.jpeg' %}" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Blog Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.</p>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+</div>
+<!--nammudeblog-->
+
+
+<!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <ul class="list-inline mb-2 customcolor">
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">About us</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+			   <li class="list-inline-item">
+                <a class="linkcolor"href="#">Blog</a>
+              </li>
+			   <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">Contact</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">Terms of Use</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">Privacy Policy</a>
+              </li>
+            </ul>
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item mr-3">
+                <a class="linkcolor"href="#">
+                  <i class="fa fa-facebook fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mr-3">
+                <a class="linkcolor"href="#">
+                  <i class="fa fa-twitter fa-2x fa-fw"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="linkcolor"href="#">
+                  <i class="fa fa-instagram fa-2x fa-fw"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+
+</html>
